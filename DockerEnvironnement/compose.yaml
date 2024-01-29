@@ -10,16 +10,14 @@ services:
       - react-spring
       - spring-mysql
     depends_on:
-      - db
-        # condition: service_healthy
+      db:
+        condition: service_healthy
   db:
-    # We use a mariadb image which supports both amd64 & arm64 architecture
-    # image: mariadb:10.6.4-focal
     # If you really want to use MySQL, uncomment the following line
-    image: mysql:8.0.19
+    image: mysql
     environment:
       - MYSQL_DATABASE=example
-      - MYSQL_ROOT_PASSWORD=test 
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/db-password
     restart: always
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "--silent"]
@@ -32,6 +30,8 @@ services:
       - db-data:/var/lib/mysql
     networks:
       - spring-mysql
+    ports:
+      - 3307:3306
   frontend:
     build:
       context: frontend
@@ -41,11 +41,6 @@ services:
     volumes:
       - ./frontend/src:/code/src
       - /project/node_modules
-    environment:
-      - WDS_SOCKET_HOST=127.0.0.1 
-      - CHOKIDAR_USEPOLLING=true
-      - WATCHPACK_POLLING=true 
-    command: npm run start
     networks:
       - react-spring
     depends_on:
@@ -53,6 +48,11 @@ services:
     expose:
       - 3306
       - 33060
+    environment:
+      - WDS_SOCKET_HOST=127.0.0.1 
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+    command: npm run start
 volumes:
   db-data: {}
 secrets:
