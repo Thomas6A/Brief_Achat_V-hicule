@@ -1,4 +1,4 @@
-package com.company.project.entity;
+package com.company.project.entity.decorateur;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,9 +6,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.company.project.entity.Commande;
+import com.company.project.entity.Utilisateur;
+
 @Entity
-@Table(name = "email")
-public class Email {
+@Table(name = "sms")
+public class Sms extends NotificationDecorator {
 	
 	@Id
 	@GeneratedValue
@@ -22,6 +25,21 @@ public class Email {
 	
 	@Column(nullable = false)
 	private Utilisateur utilisateur;
+	
+	public Sms(Notification source) {
+		super(source);
+	}
+	
+	// A changer avec une vrai fonction
+	private void sendSMS(String msg) {
+		System.out.println(msg + ", message sent in SMS");
+	}
+	
+	@Override
+	public void send(String message) {
+		super.send(message);
+		sendSMS(message);
+	}
 
 	public int getId() {
 		return id;
