@@ -1,9 +1,12 @@
 package com.company.project.entity;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -31,6 +34,31 @@ public class Moto {
 	
 	@Column(nullable = true)
 	private int quantite;
+	
+	@ManyToMany(mappedBy = "motos")
+	private Set<Panier> paniers;
+	
+	@ManyToMany(mappedBy = "motos")
+	private Set<Commande> commandes;
+
+	@ManyToMany(mappedBy = "motos")
+	private Set<Option> options;
+	
+	public Set<Panier> getPaniers() {
+		return paniers;
+	}
+
+	public void setPaniers(Set<Panier> paniers) {
+		this.paniers = paniers;
+	}
+
+	public Set<Commande> getCommandes() {
+		return commandes;
+	}
+
+	public void setCommandes(Set<Commande> commandes) {
+		this.commandes = commandes;
+	}
 
 	public int getId() {
 		return id;
@@ -86,6 +114,14 @@ public class Moto {
 
 	public void setQuantite(int quantite) {
 		this.quantite = quantite;
+	}
+
+	public Set<Option> getOptions() {
+		return options;
+	}
+
+	public void setOptions(Set<Option> options) {
+		this.options = options;
 	}
 	
 	
