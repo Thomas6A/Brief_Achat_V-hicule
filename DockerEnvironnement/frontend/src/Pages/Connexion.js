@@ -1,10 +1,10 @@
 import React from 'react';
-import ConnexionForm from '../Components/Forms/ConnexionForm';
+import ConnexionForm from '../Components/Connexion/ConnexionForm';
 
 const Connexion = () => {
   return (
-    <div className="d-flex align-items-center justify-content-center min-vh-100">
-      <div className='bg-dark p-5 w-100' style={{marginLeft: '20%', marginRight: '20%'}}>
+    <div>
+      <div className='bg-dark p-5 rounded' style={{ marginTop: '5%', marginBottom: '5%', marginLeft: '20%', marginRight: '20%'}}>
         <ConnexionForm />
       </div>
     </div>

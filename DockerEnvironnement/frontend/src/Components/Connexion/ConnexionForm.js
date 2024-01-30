@@ -20,18 +20,12 @@ const ConnexionForm = () => {
         <Form className='text-white' onSubmit={handleLogin}>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email</Form.Label>
-        <Form.Control type="email" placeholder="Votre adresse email" onChange={(e) => setEmail(e.target.value)} required />
-        <Form.Text className="text-muted text-white">
-          We'll never share your email with anyone else.
-        </Form.Text>
+        <Form.Control className='mb-5' type="email" placeholder="Votre adresse email" onChange={(e) => setEmail(e.target.value)} required />
       </Form.Group>
 
       <Form.Group className="mb-5" controlId="formBasicPassword">
         <Form.Label>Mot de passe</Form.Label>
         <Form.Control type="password" placeholder="Votre mot de passe" onChange={(e) => setPassword(e.target.value)} required/>
-      </Form.Group>
-      <Form.Group controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="J'accepte la politique de confidentialité" required />
       </Form.Group>
       <div className='text-center mt-5 mb3'>
       <Button className='mb-4' size="lg" variant="secondary" type="submit">
