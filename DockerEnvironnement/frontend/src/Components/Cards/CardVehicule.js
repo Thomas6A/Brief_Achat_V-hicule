@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 const CardVehicule = (props) => {
     return (
         <>
-            <Card style={{ width: '20%', margin: '7%' }}>
+            <Card style={{ width: props.width, margin: '7%' }}>
       <Card.Body>
         <Card.Title className='mb-5 text-center'>{props.modele}</Card.Title>
         <Card.Text className='mb-5'>
@@ -20,13 +20,19 @@ const CardVehicule = (props) => {
         <Card.Text className='mb-5'>
           {props.description}
         </Card.Text>
+        {props.status && (
+            <div className='mb-5'>{props.status}</div>
+        )}
        
         <div className='d-flex justify-content-around'>
-                        {props.bouton1 && (
-                            <div className='text-center'>{props.bouton1}</div>
+                        {props.bouton_personnaliser && (
+                            <div className='text-center'>{props.bouton_personnaliser}</div>
                         )}
-                        {props.bouton2 && (
-                            <div>{props.bouton2}</div>
+                        {props.bouton_panier && (
+                            <div>{props.bouton_panier}</div>
+                        )}
+                        {props.payer && (
+                            <div className='text-center'>{props.payer}</div>
                         )}
                     </div>
       </Card.Body>
