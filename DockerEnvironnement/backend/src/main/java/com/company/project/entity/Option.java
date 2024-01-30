@@ -11,6 +11,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.company.project.entity.vehicule.Moto;
+import com.company.project.entity.vehicule.Voiture;
+
 @Entity
 @Table(name = "option")
 public class Option {

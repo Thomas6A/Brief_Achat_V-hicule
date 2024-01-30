@@ -13,6 +13,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.company.project.entity.vehicule.Moto;
+import com.company.project.entity.vehicule.Voiture;
+
 @Entity
 @Table(name = "commande")
 public class Commande {

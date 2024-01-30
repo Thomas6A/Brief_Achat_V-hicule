@@ -1,4 +1,4 @@
-package com.company.project.entity;
+package com.company.project.entity.vehicule;
 
 import java.util.Set;
 
@@ -9,9 +9,13 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.company.project.entity.Commande;
+import com.company.project.entity.Option;
+import com.company.project.entity.Panier;
+
 @Entity
-@Table(name = "voiture")
-public class Voiture {
+@Table(name = "moto")
+public class Moto implements Vehicule {
 	
 	@Id
 	@GeneratedValue
@@ -35,14 +39,30 @@ public class Voiture {
 	@Column(nullable = true)
 	private int quantite;
 	
-	@ManyToMany(mappedBy = "voitures")
+	@ManyToMany(mappedBy = "motos")
 	private Set<Panier> paniers;
 	
-	@ManyToMany(mappedBy = "voitures")
+	@ManyToMany(mappedBy = "motos")
 	private Set<Commande> commandes;
-	
-	@ManyToMany(mappedBy = "voitures")
+
+	@ManyToMany(mappedBy = "motos")
 	private Set<Option> options;
+	
+	public Set<Panier> getPaniers() {
+		return paniers;
+	}
+
+	public void setPaniers(Set<Panier> paniers) {
+		this.paniers = paniers;
+	}
+
+	public Set<Commande> getCommandes() {
+		return commandes;
+	}
+
+	public void setCommandes(Set<Commande> commandes) {
+		this.commandes = commandes;
+	}
 
 	public int getId() {
 		return id;
@@ -100,22 +120,6 @@ public class Voiture {
 		this.quantite = quantite;
 	}
 
-	public Set<Panier> getPaniers() {
-		return paniers;
-	}
-
-	public void setPaniers(Set<Panier> paniers) {
-		this.paniers = paniers;
-	}
-
-	public Set<Commande> getCommandes() {
-		return commandes;
-	}
-
-	public void setCommandes(Set<Commande> commandes) {
-		this.commandes = commandes;
-	}
-
 	public Set<Option> getOptions() {
 		return options;
 	}
@@ -125,4 +129,5 @@ public class Voiture {
 	}
 	
 	
+
 }

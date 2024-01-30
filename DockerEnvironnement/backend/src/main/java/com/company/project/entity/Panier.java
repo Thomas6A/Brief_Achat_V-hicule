@@ -12,6 +12,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.company.project.entity.vehicule.Moto;
+import com.company.project.entity.vehicule.Voiture;
+
 @Entity
 @Table(name = "panier")
 public class Panier {
