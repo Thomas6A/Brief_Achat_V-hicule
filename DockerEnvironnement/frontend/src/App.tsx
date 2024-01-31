@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Inscription from "./Pages/Inscription";
 import Accueil from "./Pages/Accueil";
 import Panier from "./Pages/Panier";
+import Commande from "./Pages/Commande";
 
 function App() {
   return <>
@@ -17,6 +18,7 @@ function App() {
         <Route element={<Inscription />} path="/inscription" />
         <Route element={<Accueil />} path="/accueil" />
         <Route element={<Panier />} path="/panier" />
+        <Route element={<Commande />} path="/commande" />
       </Routes>
 
 

@@ -26,7 +26,7 @@ const CardVehicule = (props) => {
        
         <div className='d-flex justify-content-around'>
                         {props.bouton_personnaliser && (
-                            <div className='text-center'>{props.bouton_personnaliser}</div>
+                            <div>{props.bouton_personnaliser}</div>
                         )}
                         {props.bouton_panier && (
                             <div>{props.bouton_panier}</div>
