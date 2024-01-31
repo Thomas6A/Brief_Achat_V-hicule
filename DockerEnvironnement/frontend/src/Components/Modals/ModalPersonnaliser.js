@@ -23,7 +23,7 @@ const ModalPersonnaliser = (props) => {
 
             </Modal.Body>
             <Modal.Footer>
-                <Button onClick={props.onHide}>Fermer</Button>
+                <Button>Fermer</Button>
                 <Button onClick={() => navigate('/panier')} variant="primary">
                     Ajouter au panier
                 </Button>
