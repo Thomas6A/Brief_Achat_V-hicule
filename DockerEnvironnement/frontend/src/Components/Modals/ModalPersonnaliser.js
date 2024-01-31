@@ -5,13 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 const ModalPersonnaliser = (props) => {
     const navigate = useNavigate();
-    const handlePanier = () => {
-        try {
-          navigate('/panier');
-        } catch (error) {
-          console.log(error);
-        }
-      }
     return (
         <Modal
             {...props}
@@ -31,7 +24,7 @@ const ModalPersonnaliser = (props) => {
             </Modal.Body>
             <Modal.Footer>
                 <Button onClick={props.onHide}>Fermer</Button>
-                <Button onClick={handlePanier} variant="primary">
+                <Button onClick={() => navigate('/panier')} variant="primary">
                     Ajouter au panier
                 </Button>
             </Modal.Footer>

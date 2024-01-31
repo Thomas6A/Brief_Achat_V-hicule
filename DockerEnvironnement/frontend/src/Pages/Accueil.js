@@ -4,10 +4,12 @@ import CardVehicule from '../Components/Cards/CardVehicule';
 import Button from 'react-bootstrap/Button';
 import ModalPersonnaliser from '../Components/Modals/ModalPersonnaliser';
 import Form from 'react-bootstrap/Form';
+import { useNavigate } from 'react-router-dom';
 
 const Accueil = () => {
     const [modalShow, setModalShow] = useState(false);
     const [voitureSelectionnee, setVoitureSelectionnee] = useState(null);
+    const navigate = useNavigate();
 
     const handlePersonnaliserClick = (voiture) => {
         setVoitureSelectionnee(voiture);
@@ -44,7 +46,7 @@ const Accueil = () => {
                     </Form.Select>
                     })}>Personnaliser</Button>}
                 
-                bouton_panier={<Button variant="primary">Ajouter au panier</Button>}
+                bouton_panier={<Button onClick={() => navigate('/panier')} variant="primary">Ajouter au panier</Button>}
             />
             {/* Deuxieme voiture */}
             <CardVehicule
@@ -71,7 +73,7 @@ const Accueil = () => {
                   <option value="3">Troix</option>
                 </Form.Select>
                 })}>Personnaliser</Button>}
-                bouton_panier={<Button variant="primary">Ajouter au panier</Button>}
+                bouton_panier={<Button onClick={() => navigate('/panier')} variant="primary">Ajouter au panier</Button>}
             />
             {/* Troisieme voiture */}
             <CardVehicule
@@ -98,7 +100,7 @@ const Accueil = () => {
                   <option value="3">Troix</option>
                 </Form.Select>
                 })}>Personnaliser</Button>}
-                bouton_panier={<Button variant="primary">Ajouter au panier</Button>}
+                bouton_panier={<Button onClick={() => navigate('/panier')} variant="primary">Ajouter au panier</Button>}
             />
         </div>
         {voitureSelectionnee && (
