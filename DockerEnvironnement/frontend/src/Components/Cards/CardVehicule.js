@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card';
 const CardVehicule = (props) => {
     return (
         <>
-            <Card style={{ width: props.width, margin: '7%' }}>
+            <Card style={{ width: props.width, margin: '5%', marginLeft: '3%'}}>
       <Card.Body>
         <Card.Title className='mb-5 text-center'>{props.modele}</Card.Title>
         <Card.Text className='mb-5'>
