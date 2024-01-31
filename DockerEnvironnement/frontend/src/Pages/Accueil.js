@@ -22,7 +22,7 @@ const Accueil = () => {
 
                 {/* Premiere voiture */}
             <CardVehicule
-                width= '100%'
+                width= '30%'
                 modele="Citroen"
                 motorisation="Essence"
                 prix="2600 euros"
@@ -48,7 +48,7 @@ const Accueil = () => {
             />
             {/* Deuxieme voiture */}
             <CardVehicule
-                width= '100%'
+                width= '30%'
                 modele="Renault"
                 motorisation="Diesel"
                 prix="13000 euros"
@@ -75,7 +75,7 @@ const Accueil = () => {
             />
             {/* Troisieme voiture */}
             <CardVehicule
-                width= '100%'
+                width= '30%'
                 modele="Peugeot"
                 motorisation="Hybride"
                 prix="16000.99 euros"
