@@ -19,7 +19,7 @@ public class Moto implements Vehicule {
 	
 	@Id
 	@GeneratedValue
-	private int id;
+	private int id_moto;
 	
 	@Column(nullable = false)
 	private float prix;
@@ -65,11 +65,11 @@ public class Moto implements Vehicule {
 	}
 
 	public int getId() {
-		return id;
+		return id_moto;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.id_moto = id;
 	}
 
 	public float getPrix() {
