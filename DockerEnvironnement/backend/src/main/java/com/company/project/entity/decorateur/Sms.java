@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.company.project.entity.Commande;
@@ -20,10 +22,12 @@ public class Sms extends NotificationDecorator {
 	@Column(nullable = false)
 	private String message;
 	
-	@Column(nullable = false)
+	@ManyToOne
+	@JoinColumn(name = "id_commande")
 	private Commande commande;
 	
-	@Column(nullable = false)
+	@ManyToOne
+	@JoinColumn(name = "id_utilisateur")
 	private Utilisateur utilisateur;
 	
 	public Sms(Notification source) {
