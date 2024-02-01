@@ -10,8 +10,11 @@ const CardVehicule = ({modele, motorisation, prix, couleur, description}) => {
     const [modalShow, setModalShow] = useState(false);
     const [voitureSelectionnee, setVoitureSelectionnee] = useState(null);
 
-    const handlePersonnaliserClick = (voiture) => {
-        setVoitureSelectionnee(voiture);
+    const handlePersonnaliserClick = (modele, voitureOptions) => {
+        setVoitureSelectionnee({
+            modele,
+            ...voitureOptions
+        });
         setModalShow(true);
     };
 
@@ -34,21 +37,25 @@ const CardVehicule = ({modele, motorisation, prix, couleur, description}) => {
                         {description}
                     </Card.Text>
                     <div className='d-flex justify-content-around'>
-                        <Button variant="success" onClick={() => handlePersonnaliserClick({
-                            modele: "Citroen",
-                            option: <Form.Select aria-label="Ajouter une option">
-                                <option>Ajouter une option</option>
-                                <option value="1">Un</option>
-                                <option value="2">Deux</option>
-                                <option value="3">Troix</option>
-                            </Form.Select>,
-                            supplement: <Form.Select aria-label="Ajouter une option">
+                        <Button variant="success" onClick={() => handlePersonnaliserClick(modele, {
+                        option: (
+                            <Form.Select aria-label="Ajouter une option">
                                 <option>Ajouter une option</option>
                                 <option value="1">Un</option>
                                 <option value="2">Deux</option>
                                 <option value="3">Troix</option>
                             </Form.Select>
-                        })}>Personnaliser</Button>
+                        ),
+                        supplement: (
+                            <Form.Select aria-label="Ajouter une option">
+                                <option>Ajouter une option</option>
+                                <option value="1">Un</option>
+                                <option value="2">Deux</option>
+                                <option value="3">Troix</option>
+                            </Form.Select>
+                        )
+                    })}>Personnaliser</Button>
+
                         <Button onClick={() => navigate('/panier')} variant="primary">Ajouter au panier</Button>
                     </div>
                 </Card.Body>
