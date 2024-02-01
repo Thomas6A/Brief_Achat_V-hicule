@@ -1,43 +1,29 @@
-import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
+import React from "react";
 import "./App.css";
-
-type Greeting = {
-  id: number;
-  name: string;
-};
+import Connexion from "./Pages/Connexion";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Inscription from "./Pages/Inscription";
+import Accueil from "./Pages/Accueil";
+import Panier from "./Pages/Panier";
+import Commande from "./Pages/Commande";
 
 function App() {
-  const [greeting, setGreeting] = useState<Greeting>();
-  useEffect(() => {
-    fetch("/api")
-      .then(res => res.json())
-      .then(setGreeting)
-      .catch(console.error);
-  }, [setGreeting]);
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        {greeting ? (
-          <p>Hello from {greeting.name}</p>
-        ) : (
-          <p>Loading...</p>
-        )}
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <>
+    <BrowserRouter>
+
+      <Routes>
+        <Route element={
+          <Connexion />
+        } path={"/"} />
+        <Route element={<Inscription />} path="/inscription" />
+        <Route element={<Accueil />} path="/accueil" />
+        <Route element={<Panier />} path="/panier" />
+        <Route element={<Commande />} path="/commande" />
+      </Routes>
+
+
+    </BrowserRouter>
+  </>
 }
 
 export default App;
