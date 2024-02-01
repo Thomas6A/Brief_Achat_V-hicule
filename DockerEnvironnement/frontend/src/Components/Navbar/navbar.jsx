@@ -19,7 +19,7 @@ const NavbarComponent = () => {
                 <Button onClick={() => navigate('/panier')} variant="light" style={{ marginRight: '30px' }}>
                 <FaBasketShopping size={"40px"} />
                 </Button>
-                <Button size='lg' variant='secondary' style={{marginRight: '50px'}}>
+                <Button onClick={() => navigate('/compte')} size='lg' variant='secondary' style={{marginRight: '50px'}}>
                     Mon compte
                 </Button>
             </div>

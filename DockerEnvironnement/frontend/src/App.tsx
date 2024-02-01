@@ -6,6 +6,7 @@ import Inscription from "./Pages/Inscription";
 import Accueil from "./Pages/Accueil";
 import Panier from "./Pages/Panier";
 import Commande from "./Pages/Commande";
+import Compte from "./Pages/Compte";
 
 function App() {
   return <>
@@ -19,6 +20,7 @@ function App() {
         <Route element={<Accueil />} path="/accueil" />
         <Route element={<Panier />} path="/panier" />
         <Route element={<Commande />} path="/commande" />
+        <Route element={<Compte />} path="/compte" />
       </Routes>
 
 
