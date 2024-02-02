@@ -12,7 +12,7 @@ public class Utilisateur {
 	
 	@Id
 	@GeneratedValue
-	private int id;
+	private int id_utilisateur;
 	
 	@Column(nullable = false)
 	private String username;
@@ -30,11 +30,11 @@ public class Utilisateur {
 	private String tel;
 
 	public int getId() {
-		return id;
+		return id_utilisateur;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.id_utilisateur = id;
 	}
 
 	public String getUsername() {

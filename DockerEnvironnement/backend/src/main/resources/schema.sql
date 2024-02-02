@@ -39,7 +39,7 @@ id_utilisateur int NOT NULL,
 FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur)
 );
 
-CREATE TABLE IF NOT EXISTS possedeVoiture (
+CREATE TABLE IF NOT EXISTS possedevoiture (
 id_panier int NOT NULL,
 id_voiture int NOT NULL,
 PRIMARY KEY(id_panier, id_voiture),
@@ -57,7 +57,7 @@ id_utilisateur int NOT NULL,
 FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur)
 );
 
-CREATE TABLE IF NOT EXISTS contientVoiture(
+CREATE TABLE IF NOT EXISTS contientvoiture(
 id_commande int NOT NULL,
 id_voiture int NOT NULL,
 PRIMARY KEY(id_commande, id_voiture),
@@ -65,7 +65,7 @@ FOREIGN KEY (id_commande) REFERENCES commande(id_commande),
 FOREIGN KEY (id_voiture) REFERENCES voiture(id_voiture)
 );
 
-CREATE TABLE IF NOT EXISTS possedeMoto(
+CREATE TABLE IF NOT EXISTS possedemoto(
 id_panier int NOT NULL,
 id_moto int NOT NULL,
 PRIMARY KEY(id_panier, id_moto),
@@ -73,7 +73,7 @@ FOREIGN KEY (id_panier) REFERENCES panier(id_panier),
 FOREIGN KEY (id_moto) REFERENCES moto(id_moto)
 );
 
-CREATE TABLE IF NOT EXISTS contientMoto(
+CREATE TABLE IF NOT EXISTS contientmoto(
 id_commande int NOT NULL,
 id_moto int NOT NULL,
 PRIMARY KEY(id_commande, id_moto),
@@ -97,4 +97,26 @@ id_commande int NOT NULL,
 FOREIGN KEY (id_commande) REFERENCES commande(id_commande),
 id_utilisateur int NOT NULL,
 FOREIGN KEY (id_utilisateur) REFERENCES utilisateur(id_utilisateur)
+);
+
+CREATE TABLE IF NOT EXISTS options(
+id_option int PRIMARY KEY AUTO_INCREMENT,
+type_option varchar(255) NOT NULL,
+supplement float NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS supplementvoiture(
+id_option int NOT NULL,
+id_voiture int NOT NULL,
+PRIMARY KEY(id_option, id_voiture),
+FOREIGN KEY (id_option) REFERENCES options(id_option),
+FOREIGN KEY (id_voiture) REFERENCES voiture(id_voiture)
+);
+
+CREATE TABLE IF NOT EXISTS supplementmoto(
+id_option int NOT NULL,
+id_moto int NOT NULL,
+PRIMARY KEY(id_option, id_moto),
+FOREIGN KEY (id_option) REFERENCES options(id_option),
+FOREIGN KEY (id_moto) REFERENCES moto(id_moto)
 );

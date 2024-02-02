@@ -17,7 +17,7 @@ public class Sms extends NotificationDecorator {
 	
 	@Id
 	@GeneratedValue
-	private int id;
+	private int id_sms;
 	
 	@Column(nullable = false)
 	private String message;
@@ -46,11 +46,11 @@ public class Sms extends NotificationDecorator {
 	}
 
 	public int getId() {
-		return id;
+		return id_sms;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.id_sms = id;
 	}
 
 	public String getMessage() {

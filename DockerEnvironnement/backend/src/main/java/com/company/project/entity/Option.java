@@ -15,12 +15,12 @@ import com.company.project.entity.vehicule.Moto;
 import com.company.project.entity.vehicule.Voiture;
 
 @Entity
-@Table(name = "option")
+@Table(name = "options")
 public class Option {
 	
 	@Id
 	@GeneratedValue
-	private int id;
+	private int id_option;
 	
 	@Column(nullable = false)
 	private String type_option;
@@ -30,24 +30,24 @@ public class Option {
 	
 	@ManyToMany
 	@JoinTable(
-		name = "supplementVoiture", 
+		name = "supplementvoiture", 
 		joinColumns = @JoinColumn(name = "id_option"), 
 		inverseJoinColumns = @JoinColumn(name = "id_voiture"))
     private Set<Voiture> voitures;
 	
 	@ManyToMany
 	@JoinTable(
-		name = "supplementMoto", 
+		name = "supplementmoto", 
 		joinColumns = @JoinColumn(name = "id_option"), 
 		inverseJoinColumns = @JoinColumn(name = "id_moto"))
     private Set<Moto> motos;
 
 	public int getId() {
-		return id;
+		return id_option;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.id_option = id;
 	}
 
 	public String getType_option() {

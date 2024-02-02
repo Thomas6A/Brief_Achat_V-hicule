@@ -25,15 +25,15 @@ INSERT INTO panier(validation_panier, id_utilisateur) VALUES(1, 1);
 INSERT INTO panier(validation_panier, id_utilisateur) VALUES(0, 2);
 INSERT INTO panier(validation_panier, id_utilisateur) VALUES(1, 3);
 
-INSERT INTO contientMoto(id_commande, id_moto) VALUES (1, 1);
-INSERT INTO contientMoto(id_commande, id_moto) VALUES (2, 3);
+INSERT INTO contientmoto(id_commande, id_moto) VALUES (1, 1);
+INSERT INTO contientmoto(id_commande, id_moto) VALUES (2, 3);
 
-INSERT INTO contientVoiture(id_commande, id_voiture) VALUES(3,2);
+INSERT INTO contientvoiture(id_commande, id_voiture) VALUES(3,2);
 
-INSERT INTO possedeMoto(id_panier, id_moto) VALUES(2, 4);
-INSERT INTO possedeMoto(id_panier, id_moto) VALUES(3, 5);
+INSERT INTO possedemoto(id_panier, id_moto) VALUES(2, 4);
+INSERT INTO possedemoto(id_panier, id_moto) VALUES(3, 5);
 
-INSERT INTO possedeVoiture(id_panier, id_voiture) VALUES(2, 4);
-INSERT INTO possedeVoiture(id_panier, id_voiture) VALUES(1, 2);
+INSERT INTO possedevoiture(id_panier, id_voiture) VALUES(2, 4);
+INSERT INTO possedevoiture(id_panier, id_voiture) VALUES(1, 2);
 
 INSERT INTO sms (message, id_commande, id_utilisateur) VALUES ("Votre voiture à été livré", 3, 2);
