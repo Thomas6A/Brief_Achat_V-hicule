@@ -31,5 +31,12 @@ public class VehiculeService {
 		vehicules.addAll((Collection<? extends Vehicule>) motoRepository.findAll());
 		return vehicules;
 	}
+	
+	public List<Vehicule> getVehiculeCommand(final int id){
+		List<Vehicule> vehicules = new ArrayList<>();
+		vehicules.addAll((Collection<? extends Vehicule>) voitureRepository.findByCommande(id));
+		vehicules.addAll((Collection<? extends Vehicule>) motoRepository.findByCommande(id));
+		return vehicules;
+	}
 
 }

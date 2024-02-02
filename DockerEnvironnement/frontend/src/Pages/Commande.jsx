@@ -1,38 +1,37 @@
-import React from 'react';
-import ContainerCommande from '../Components/Container/ContainerCommande';
-import NavbarComponent from '../Components/Navbar/navbar';
+import React, { useEffect, useState } from "react";
+import ContainerCommande from "../Components/Container/ContainerCommande";
+import NavbarComponent from "../Components/Navbar/navbar";
+import CommandeService from "../Services/CommandeService";
 
 const Commande = () => {
-    return (
-        <>
-        <NavbarComponent />
-        
-            <ContainerCommande
-            modele="Citroen"
-            motorisation="Essence"
-            prix="2600 euros"
-            couleur="Rouge"
-            description="Une voiture motorisée pour parcourir la route comme un moteur qui alimente tous les autres moteurs du monde des moteurs."
-            status= "En cours de livraison"
-            />
-            <ContainerCommande
-                modele="Peugeot"
-                motorisation="Hybride"
-                prix="16000.99 euros"
-                couleur="Orange"
-                description="Une voiture peugeot"
-                status= "Commande refusé, tu seras pas livré et tu seras pas rembourser ! Allez CHEH"
-            />
-            <ContainerCommande
-                modele="Renault"
-                motorisation="Diesel"
-                prix="13000 euros"
-                couleur="Bleu"
-                description="Une moto pour les pro."
-                status="En cours de traitement"
-            />
-        </>
-    );
+  const [commandes, setCommandes] = useState([]);
+
+  useEffect(() => {
+    fetchCommandes();
+  }, []);
+
+  const fetchCommandes = async () => {
+    try {
+      let response = await CommandeService.fetchCommandesUser(1);
+      setCommandes(response.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  return (
+    <>
+      <NavbarComponent />
+      {commandes.map((commande) => (
+        <ContainerCommande
+          key={commande.id_commande}
+          prix={commande.facture}
+          statut={commande.statut}
+          date={commande.date}_livraison
+        />
+      ))}
+    </>
+  );
 };
 
 export default Commande;

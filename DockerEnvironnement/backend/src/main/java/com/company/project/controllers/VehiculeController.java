@@ -23,5 +23,10 @@ public class VehiculeController {
     public List<Vehicule> getAllVehicules() {
         return vehiculeService.getAllVehicule();
     }
+    
+    @GetMapping("/vehicules/{id}")
+    public List<Vehicule> getVehiculesCommandes(final int id) {
+        return vehiculeService.getVehiculeCommand(id);
+    }
 
 }
