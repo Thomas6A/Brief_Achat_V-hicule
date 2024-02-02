@@ -12,6 +12,7 @@ import javax.persistence.Table;
 import com.company.project.entity.Commande;
 import com.company.project.entity.Option;
 import com.company.project.entity.Panier;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 @Table(name = "voiture")
@@ -39,12 +40,15 @@ public class Voiture implements Vehicule {
 	@Column(nullable = true)
 	private int quantite;
 	
+	@JsonBackReference
 	@ManyToMany(mappedBy = "voitures")
 	private Set<Panier> paniers;
 	
+	@JsonBackReference
 	@ManyToMany(mappedBy = "voitures")
 	private Set<Commande> commandes;
 	
+	@JsonBackReference
 	@ManyToMany(mappedBy = "voitures")
 	private Set<Option> options;
 

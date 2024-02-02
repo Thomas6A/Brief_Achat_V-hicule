@@ -25,18 +25,21 @@ const Accueil = () => {
             <NavbarComponent />
             <div className='d-flex justify-content-around'>
 
-            {vehicules.map(vehicule => (
-                    <CardVehicule
-                        key={vehicule.id} // Assuming each vehicule has a unique ID
-                        modele={vehicule.modele}
-                        motorisation={vehicule.motorisation}
-                        prix={vehicule.prix}
-                        couleur={vehicule.couleur}
-                        description={vehicule.description}
-                    />
+            <div className='row flex-wrap justify-content-around '>
+                {vehicules.map(vehicule => (
+                    <div key={vehicule.id} className='col-md-4'>
+                        <CardVehicule
+                            modele={vehicule.nom_modele}
+                            motorisation={vehicule.motorisation}
+                            prix={vehicule.prix}
+                            couleur={vehicule.couleur}
+                            description={vehicule.description}
+                        />
+                    </div>
                 ))}
+            </div>
         </div>
-        
+
         </div>
     );
 };

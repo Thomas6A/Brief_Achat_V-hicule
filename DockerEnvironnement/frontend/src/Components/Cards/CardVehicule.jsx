@@ -17,7 +17,7 @@ const CardVehicule = ({modele, motorisation, prix, couleur, description}) => {
 
     return (
         <>
-            <Card style={{ width: '30%', margin: '5%', marginLeft: '3%' }}>
+            <Card style={{margin: '5%', marginLeft: '3%' }}>
                 <Card.Body>
                         <Card.Title style={{ marginLeft: '38%' }}>{modele}</Card.Title>
 

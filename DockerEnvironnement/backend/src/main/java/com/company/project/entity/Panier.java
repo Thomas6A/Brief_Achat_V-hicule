@@ -21,42 +21,43 @@ public class Panier {
 	
 	@Id
 	@GeneratedValue
-	private int id;
+	private int id_panier;
 	
 	@Column(nullable = false)
-	private boolean validation;
+	private boolean validation_panier;
 	
 	@OneToOne
+	@JoinColumn(name = "id_utilisateur")
 	private Utilisateur utilisateur;
 	
 	@ManyToMany
 	@JoinTable(
-		name = "possedeVoiture", 
+		name = "possedevoiture", 
 		joinColumns = @JoinColumn(name = "id_panier"), 
 		inverseJoinColumns = @JoinColumn(name = "id_voiture"))
     private Set<Voiture> voitures;
 	
 	@ManyToMany
 	@JoinTable(
-		name = "possedeMoto", 
+		name = "possedemoto", 
 		joinColumns = @JoinColumn(name = "id_panier"), 
 		inverseJoinColumns = @JoinColumn(name = "id_moto"))
     private Set<Moto> motos;
 
 	public int getId() {
-		return id;
+		return id_panier;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.id_panier = id;
 	}
 
 	public boolean isValidation() {
-		return validation;
+		return validation_panier;
 	}
 
 	public void setValidation(boolean validation) {
-		this.validation = validation;
+		this.validation_panier = validation;
 	}
 
 	public Utilisateur getUtilisateur() {

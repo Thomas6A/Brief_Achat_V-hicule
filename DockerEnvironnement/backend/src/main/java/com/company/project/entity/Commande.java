@@ -22,7 +22,7 @@ public class Commande {
 	
 	@Id
 	@GeneratedValue
-	private int id;
+	private int id_commande;
 	
 	@Column(nullable = false)
 	private Date date_livraison;
@@ -37,28 +37,29 @@ public class Commande {
 	private String statut;
 	
 	@ManyToOne
+	@JoinColumn(name = "id_utilisateur")
 	private Utilisateur utilisateur;
 	
 	@ManyToMany
 	@JoinTable(
-		name = "contientVoiture", 
+		name = "contientvoiture", 
 		joinColumns = @JoinColumn(name = "id_commande"), 
 		inverseJoinColumns = @JoinColumn(name = "id_voiture"))
     private Set<Voiture> voitures;
 	
 	@ManyToMany
 	@JoinTable(
-		name = "contientMoto", 
+		name = "contientmoto", 
 		joinColumns = @JoinColumn(name = "id_commande"), 
 		inverseJoinColumns = @JoinColumn(name = "id_moto"))
     private Set<Moto> motos;
 
 	public int getId() {
-		return id;
+		return id_commande;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.id_commande = id;
 	}
 
 	public Date getDate_livraison() {
