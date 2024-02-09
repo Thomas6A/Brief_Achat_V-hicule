@@ -24,12 +24,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - name: Change to subdirectory
-        run: cd DockerEnvironnement/backend
 
-      - name: List contents of the directory
-        run: ls -la # List contents of the directory for verification
-        
       - name: Set up JDK 11 for x64
         uses: actions/setup-java@v3
         with:
@@ -38,6 +33,7 @@ jobs:
             architecture: x64
 
       - name: Run the Maven verify phase
+        working-directory : ./DockerEnvironnement/backend    
         run: mvn --batch-mode --update-snapshots verify
         
       - uses: actions/upload-artifact@v4
